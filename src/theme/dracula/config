@@ -1,0 +1,185 @@
+<theme name = "Dracula">
+<popup_style file_name="dracula.tar.gz" />
+<colors>
+	<!-- <color1 name="window bg" default="#44475a" opacity="100" /> -->
+	<color1 name="active color bg" default="#282a36" opacity="100" />
+	<color3 name="active window text" default="#f8f8f2" opacity="90" />
+	<color5 name="active + dots color" default="#8be9fd" opacity="100" />
+	<color6 name="launching color" default="#ffb86c" opacity="100" />
+	<color7 name="attention color" default="#ff5555" opacity="100" />
+	<color8 name="minimized color" default="#44475a" opacity="30" />
+</colors>
+<pixmaps>
+
+	<pixmap_from_file name="dglow" file="dglow.png" />
+	<pixmap_from_file name="activeglow" file="abglow.png" />
+
+</pixmaps>
+<button_pixmap gap = "0" aspect_ratio="1" windows_cnt="3"  >
+	<pixmap name="icon">
+		<if size="30:">
+		<get_icon size="-7"  />
+		</if>
+		<if size=":29">
+		<get_icon size="-3" />
+		</if>
+		<correct_size />
+		<if type="mouse_over">	
+			<bright strength="15" />
+		</if>
+	</pixmap>
+	<clear />
+	<if type="active">
+		<correct_size />
+		<pixmap name="active_bg">
+			<fill color="icon_average" opacity="100" />
+			<alpha_mask mask="activeglow" />
+			<composite bg="self" fg="activeglow" opacity="100" />
+		</pixmap>
+		<composite bg="active_bg" fg="self" />
+	</if>
+	<if type="!all_minimized">
+	<if type="!some_minimized">
+	
+	<correct_size />
+		
+	<if type="!launcher" windows="1">
+		<pixmap name="b1">
+			<fill color="color5" opacity="color5" />
+			<alpha_mask mask="dglow" />
+			<composite bg="self" fg="dglow" opacity="80" />
+		</pixmap>
+		<composite bg="self" fg="b1" />
+	</if>
+	<if type="!launcher" windows="2">
+		<pixmap name="b2">
+			<fill color="color5" opacity="color5" />
+			<alpha_mask mask="dglow" />
+			<composite bg="self" fg="dglow" opacity="80" />
+		</pixmap>
+		<composite bg="self" fg="b2" xoffset="12%" yoffset="0"  />
+		<composite bg="self" fg="b2" xoffset="-12%" yoffset="0"  />
+	</if>
+	<if type="!launcher" windows="3">
+		<pixmap name="b3">
+			<fill color="color5" opacity="color5" />
+			<alpha_mask mask="dglow" />
+			<composite bg="self" fg="dglow" opacity="80" />
+		</pixmap>
+		<composite bg="self" fg="b3" xoffset="20%" yoffset="0"  />
+		<composite bg="self" fg="b3" xoffset="-20%" yoffset="0"  />
+		<composite bg="self" fg="b3" xoffset="0" yoffset="0"/>
+	</if>
+	</if>
+	</if>
+	<if type="all_minimized"  windows="1">
+		<correct_size />
+		<pixmap name="mini">
+			<fill color="color8" opacity="color8" />
+			<alpha_mask mask="dglow" />
+			<composite bg="self" fg="dglow" opacity="30" />
+		</pixmap>
+		<composite bg="self" fg="mini" />
+	</if>
+	<if type="all_minimized"  windows="2">
+		<correct_size />
+		<pixmap name="mini">
+			<fill color="color8" opacity="color8" />
+			<alpha_mask mask="dglow" />
+			<composite bg="self" fg="dglow" opacity="30" />
+		</pixmap>
+		<composite bg="self" fg="mini" xoffset="6" yoffset="0"  />
+		<composite bg="self" fg="mini" xoffset="-6" yoffset="0"  />
+	</if>
+	<if type="all_minimized"  windows="3">
+		<correct_size />
+		<pixmap name="mini">
+			<fill color="color8" opacity="color8" />
+			<alpha_mask mask="dglow" />
+			<composite bg="self" fg="dglow" opacity="30" />
+		</pixmap>
+		<composite bg="self" fg="mini" xoffset="10" yoffset="0"  />
+		<composite bg="self" fg="mini" xoffset="-10" yoffset="0"  />
+		<composite bg="self" fg="mini" />
+	</if>
+	<if type="some_minimized"  windows="2">
+		<correct_size />
+		<pixmap name="b1">
+			<fill color="color5" opacity="color5" />
+			<alpha_mask mask="dglow" />
+			<composite bg="self" fg="dglow" opacity="80" />
+		</pixmap>
+		<pixmap name="mini">
+			<fill color="color8" opacity="color8" />
+			<alpha_mask mask="dglow" />
+			<composite bg="self" fg="dglow" opacity="30" />
+		</pixmap>
+		<composite bg="self" fg="b1" xoffset="6" yoffset="0"  />
+		<composite bg="self" fg="mini" xoffset="-6" yoffset="0"  />
+	</if>
+	<if type="some_minimized"  windows="3">
+		<correct_size />
+		<pixmap name="b1">
+			<fill color="color5" opacity="color5" />
+			<alpha_mask mask="dglow" />
+			<composite bg="self" fg="dglow" opacity="80" />
+		</pixmap>
+		<pixmap name="mini">
+			<fill color="color8" opacity="color8" />
+			<alpha_mask mask="dglow" />
+			<composite bg="self" fg="dglow" opacity="30" />
+		</pixmap>
+		<composite bg="self" fg="mini" xoffset="10" yoffset="0"  />
+		<composite bg="self" fg="mini" xoffset="-10" yoffset="0"  />
+		<composite bg="self" fg="b1" />
+	</if>
+	<if type="launcher">
+		<if type="launching">
+			<correct_size />
+			<pixmap name="active_bg">
+				<fill color="color6" opacity="color6" />
+				<alpha_mask mask="activeglow" />
+				<composite bg="self" fg="activeglow" opacity="70" />
+			</pixmap>
+			<composite bg="active_bg" fg="self" />
+		</if>
+	</if>
+	<if type="mouse_over">	
+			<bright strength="15" />
+	</if>
+	<if type="blink">
+		<correct_size />
+		<pixmap name="active_bg">
+			<fill color="color7" opacity="color7" />
+			<alpha_mask mask="activeglow" />
+			<composite bg="self" fg="activeglow" opacity="50" />
+		</pixmap>
+		<composite bg="active_bg" fg="self" />
+
+		
+	</if>
+	<if type="needs_attention">
+		<correct_size />
+		<pixmap name="active_bg">
+			<fill color="color7" opacity="color7" />
+			<alpha_mask mask="activeglow" />
+			<composite bg="self" fg="activeglow" opacity="50"  />
+		</pixmap>
+		<composite bg="self" fg="active_bg" />
+
+		
+	</if>
+	<if orient="left">
+		<rotate angle="90" />
+	</if>
+	<if orient="right">
+		<rotate angle="-90" />
+	</if>
+	<if orient="up">
+		<rotate angle="180" />
+	</if>
+	<composite bg="self" fg="icon" />
+
+	
+</button_pixmap>
+</theme>
